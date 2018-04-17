@@ -32,7 +32,7 @@ const HtmlWebpackPlugins = [];
 /**
  * @type {Array}
  */
-const PAGES = fs.readdirSync(PATHS.SRC + '/pages').filter(function(file) {
+const PAGES = fs.readdirSync(PATHS.SRC + '/pages').filter(function (file) {
     return fs.statSync(path.join(PATHS.SRC + '/pages', file)).isDirectory();
 });
 
@@ -42,13 +42,13 @@ PAGES.forEach((page) => {
         new HTMLPlugin({
             filename: `${page}.html`,
             chunks: ['common', page],
-            template: `${PATHS.SRC}/pages/${page}/index.html`,
+            template: `${PATHS.SRC}/pages/${page}/index.pug`,
             templateName: page,
         })
     );
 });
 
-module.exports = (env={}, options={}) => {
+module.exports = (env = {}, options = {}) => {
     /**
      * @constant
      * @type {boolean}
@@ -66,6 +66,30 @@ module.exports = (env={}, options={}) => {
     const fileNameJs = nameBase + '.js';
     const fileNameCss = nameBase + '.css';
 
+    const jsModules = [
+        {
+            test: /\.js$/,
+            enforce: 'pre',
+            include: PATHS.SRC,
+            loader: 'eslint-loader',
+            options: {
+                quiet: true,
+            },
+        },
+    ];
+
+    // HMR in js not work with babel-loader if js file export no function
+    // or this function not executing in parent module
+    if (!options.hot) {
+        jsModules.push({
+            test: /\.js$/,
+            exclude: /(node_modules)/,
+            use: {
+                loader: 'babel-loader',
+            },
+        });
+    }
+
     return {
         entry: entriesKeys,
         output: {
@@ -74,22 +98,7 @@ module.exports = (env={}, options={}) => {
         },
         module: {
             rules: [
-                {
-                    test: /\.js$/,
-                    enforce: 'pre',
-                    include: PATHS.SRC,
-                    loader: 'eslint-loader',
-                    options: {
-                        quiet: true,
-                    },
-                },
-                {
-                    test: /\.js$/,
-                    exclude: /(node_modules)/,
-                    use: {
-                        loader: 'babel-loader',
-                    },
-                },
+                ...jsModules,
                 {
                     test: /\.css$/,
                     use: ExtractTextPlugin.extract({
@@ -103,6 +112,13 @@ module.exports = (env={}, options={}) => {
                                 },
                             }, 'postcss-loader'],
                     }),
+                },
+                {
+                    test: /\.pug$/,
+                    loader: 'pug-loader',
+                    options: {
+                        pretty: !isProd,
+                    },
                 },
                 {
                     test: /\.(png|jpe?g|gif|svg)$/,
@@ -153,11 +169,9 @@ module.exports = (env={}, options={}) => {
                 ENV: env,
             }),
             new webpack.NamedModulesPlugin(),
-            new webpack.HotModuleReplacementPlugin(),
         ],
         devtool: isProd ? 'source-map' : 'eval',
         devServer: {
-            hot: true,
             inline: true,
             overlay: true,
             contentBase: PATHS.DEV,
