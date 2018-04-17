@@ -1,0 +1,9 @@
+extends ../../templates/base/index
+
+append variables
+    - var title = "Главная страница";
+
+include ../../components/header/index
+block body
+    .p-index.l-page
+        +header()(class="p-index__header l-page__header")

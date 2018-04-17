@@ -1,0 +1,20 @@
+block variables
+    -
+        var title = "Base шаблон";
+
+doctype html
+html(lang="ru-RU").no-js
+
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="initial-scale=1.0,width=device-width")
+        title=title
+
+        script.
+            (function (H) {
+                H.className = H.className.replace(/\bno-js\b/, 'js')
+            })(document.documentElement)
+
+    body#section-top
+        block body
+            div Основное содержимое базового шаблона
