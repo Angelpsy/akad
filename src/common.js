@@ -1,7 +1,2 @@
-import './index.css';
-
-let foo = 'bar';
-
-foo = foo + 'qwe1';
-
-console.log('---', foo, '---');
+import 'normalize.css';
+import './common/styles/index.css';
