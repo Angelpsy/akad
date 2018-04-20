@@ -122,14 +122,14 @@ module.exports = (env = {}, options = {}) => {
                 },
                 {
                     test: /\.(png|jpe?g|gif|svg)$/,
-                    loader: 'url-loader',
+                    loader: `url-loader`,
                     issuer: {
                         test: /\.(css|js)$/, // from css and js files
                     },
                     query: {
                         name,
-                        publicPath: '../img',
-                        outputPath: PATHS.STATIC + 'img/',
+                        publicPath: isServer ? PATHS.STATIC + `img/` : `../img`,
+                        outputPath: PATHS.STATIC + `img/`,
                         limit: 4000,
                     },
                 },
@@ -151,8 +151,8 @@ module.exports = (env = {}, options = {}) => {
                     loader: 'url-loader',
                     query: {
                         name,
-                        publicPath: '../fonts',
-                        outputPath: PATHS.STATIC + 'fonts/',
+                        publicPath: isServer ? PATHS.STATIC + `fonts/` : `../fonts`,
+                        outputPath: PATHS.STATIC + `fonts/`,
                         limit: 4000,
                     },
                 },
