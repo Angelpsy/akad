@@ -1,6 +1,12 @@
 block variables
     -
-        var title = "Base шаблон";
+        var title = 'Base шаблон';
+        var url = "/"
+        var data = {
+            menu: require('../../data/menu').default,
+        };
+
+include ../../components/header/index
 
 doctype html
 html(lang="ru-RU").no-js
@@ -15,6 +21,11 @@ html(lang="ru-RU").no-js
                 H.className = H.className.replace(/\bno-js\b/, 'js')
             })(document.documentElement)
 
-    body#section-top
+    body#section-top.p-base
+        block header
+                +header({
+                    menu: data.menu,
+                    url,
+                })(class='p-base__header')
         block body
             div Основное содержимое базового шаблона

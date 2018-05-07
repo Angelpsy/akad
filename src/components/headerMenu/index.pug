@@ -1,0 +1,15 @@
+include ../menu/index
+
+mixin headerMenu(options)
+    if !options
+        - options = {}
+
+
+    .b-header-menu(class!=attributes.class)
+        button.b-header-menu__open-btn open menu
+        // TODO: реализовать показ меню по клику, оформить
+        .b-header-menu__container(style="display: none;")
+            +menu({
+                menu: options.menu,
+                url: options.url
+            })(class="b-header-menu__menu" mod="vertical")

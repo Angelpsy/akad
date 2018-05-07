@@ -1,0 +1,60 @@
+.b-index-hero {
+    --content-width--base: 550px;
+    --border-header-width: 10px;
+
+    position: relative;
+
+    &::before {
+        /* TODO: подумать о переносе в history of agency */
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 850px;
+        max-height: 100vh;
+        background: url("./assets/hero-bg.jpg") center center no-repeat;
+        background-size: cover;
+    }
+}
+
+.b-index-hero__container {
+    position: relative;
+    max-width: var(--content-width--base);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 255px;
+    padding-bottom: 125px;
+    text-align: center;
+}
+
+.b-index-hero__title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 48px;
+    font-family: var(--ff-header);
+    text-transform: uppercase;
+    border: var(--border-header-width) solid;
+
+    &::before {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + var(--border-header-width));
+        left: 0;
+        display: block;
+        width: 100px;
+        height: 30px;
+        margin: auto;
+        font-size: 18px;
+        line-height: 30px;
+        text-transform: uppercase;
+        background: var(--color-base-green);
+        content: attr(data-tooltipe-before);
+    }
+}

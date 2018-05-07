@@ -1,0 +1,24 @@
+mixin menuItem(options)
+    if !options
+        - options = {}
+
+    li.b-menu-item(class!=attributes.class)
+        a.b-menu-item__link(href=options.item.link )
+            span.b-menu-item__text= options.item.text
+
+
+mixin menu(options)
+    if !options
+        - options = {}
+    -
+        var className = `b-menu`;
+        className = attributes.mod ? className + ' ' + `b-menu--${attributes.mod}` : className;
+        className = attributes.class ? className + ' ' + attributes.class : className;
+
+    nav(class=className)
+        ul.b-menu__list
+             each item in options.menu
+                 +menuItem({
+                     item,
+                     isActive: item.link === options.url
+                 })(class="b-menu__item")

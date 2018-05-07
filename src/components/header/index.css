@@ -1,0 +1,10 @@
+.b-header__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b-header__logo {
+    font-weight: 700;
+    font-family: var(--ff-bold);
+    text-transform: uppercase;
+}

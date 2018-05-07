@@ -1,0 +1,12 @@
+mixin title(options)
+    if !options
+        - var options = {}
+    - var tag = attributes.tag || 'div'
+    -
+        var className = `b-title`;
+        className = attributes.mod ? className + ' b-title--' + attributes.mod : className;
+        className = attributes.class ? className + ' ' + attributes.class : className;
+
+    if (options.text)
+        #{tag}(class!=className)
+            span.b-title__text=options.text

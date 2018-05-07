@@ -1,6 +1,14 @@
+include ../headerMenu/index
+
 mixin header(options)
     if !options
         - options = {}
 
-    .b-header(class!=attributes.class)
 
+    header.b-header(class!=attributes.class)
+        .l-container.b-header__container
+            .b-header__logo Akad.
+            +headerMenu({
+                menu: options.menu,
+                url: options.url,
+            })(class='b-header__menu')

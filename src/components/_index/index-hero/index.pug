@@ -1,0 +1,12 @@
+mixin indexHero(options)
+    - var heroTitle = 'Creative agency';
+    if !options
+        - options = {}
+
+    section.b-index-hero(class!=attributes.class)
+        .l-container.b-index-hero__container
+            h1.b-index-hero__title(data-tooltipe-before="we` re")= heroTitle
+            .b-index-hero__content
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                | sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+

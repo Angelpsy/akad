@@ -137,7 +137,7 @@ module.exports = (env = {}, options = {}) => {
                     test: /\.(png|jpe?g|gif|svg)$/,
                     loader: 'url-loader',
                     issuer: {
-                        test: /\.html$/, // from html files
+                        test: /\.(html|pug)$/, // from html and pug files
                     },
                     query: {
                         name,

@@ -1,0 +1,14 @@
+:root {
+    --width-container-base: 1140px;
+    --widt-gutter-base: 30px;
+    --color-base-dark: #60606e;
+    --color-base-green: #7beec7;
+    --color-base-white: #fff;
+    --color-text: var(--color-base-dark);
+    --ff-text: "OpenSans", sans-serif;
+    --ff-header: "Montserrat", "OpenSans", sans-serif;
+    --ff-regular: var(--ff-text);
+    --ff-bold: var(--ff-header);
+    --fz-text: 16px;
+    --z-header: 100;
+}

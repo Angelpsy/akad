@@ -1,0 +1,41 @@
+.b-index-history__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b-index-history__img-wr {
+    max-width: 458px;
+    margin-right: var(--widt-gutter-base);
+}
+
+.b-index-history__article {
+    max-width: 555px;
+}
+
+.b-index-history__title {
+    margin-top: 10px;
+}
+
+.b-index-history__text {
+    line-height: 1.875;
+}
+
+.b-index-history__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.b-index-history__more {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 165px;
+    min-height: 50px;
+    color: var(--color-base-white);
+    font-weight: bold;
+    font-size: 14px;
+    font-family: var(--ff-bold);
+    text-transform: uppercase;
+    text-decoration: none;
+    background: var(--color-base-green);
+}

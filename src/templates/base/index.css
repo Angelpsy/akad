@@ -1,0 +1,11 @@
+.p-base {
+    position: relative;
+}
+
+.p-base__header {
+    position: absolute;
+    top: 43px;
+    right: 0;
+    left: 0;
+    z-index: var(--z-header);
+}

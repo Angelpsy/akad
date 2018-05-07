@@ -1,9 +1,17 @@
 extends ../../templates/base/index
 
-append variables
-    - var title = "Главная страница";
 
-include ../../components/header/index
+append variables
+    -
+        var title = "Главная страница";
+        var url = "index.html";
+        var indexData = require('../../data/index');
+        data = Object.assign(data, indexData.default);
+
+include ../../components/_index/index-hero/index
+include ../../components/_index/index-history/index
 block body
-    .p-index.l-page
-        +header()(class="p-index__header l-page__header")
+    +indexHero()(class='p-index__hero')
+    +indexHistory({
+        img: data.index.history.img
+    })(class='p-index__history')
