@@ -1,0 +1,7 @@
+mixin titleSrOnly(options)
+    if !options
+        - var options = {}
+    - var tag = attributes.tag || 'div'
+
+    if (options.text)
+        #{tag}.u-sr-only=options.text
