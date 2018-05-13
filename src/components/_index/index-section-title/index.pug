@@ -1,8 +1,0 @@
-mixin indexSectionTitle(options)
-    if !options
-        - var options = {}
-    - var tag = attributes.tag || div
-
-    if options.title
-        #{tag}.b-index-section-title(class!=attributes.class)= options.title
-
