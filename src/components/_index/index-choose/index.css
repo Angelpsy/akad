@@ -1,0 +1,60 @@
+.b-index-choose {
+    margin-top: 150px;
+}
+
+.b-index-choose__header {
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.b-index-choose__desc {
+    max-width: 750px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.b-index-choose__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b-index-choose__advantages {
+    flex-grow: 1;
+    column-count: 2;
+    column-gap: 0;
+}
+
+.b-index-choose__advantage {
+    display: inline-block;
+    width: 100%;
+    min-height: 250px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+.b-index-choose__advantage-icon-wr {
+    margin-bottom: 25px;
+}
+
+.b-index-choose__advantage-title {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-family: var(--ff-bold);
+}
+
+.b-index-choose__advantage-list {
+    padding-left: 0;
+    color: rgb(153, 153, 153);
+    font-size: 14px;
+    line-height: 2.143;
+    list-style-type: none;
+}
+
+.b-index-choose__img-wr {
+    max-width: 457px;
+    margin-left: 30px;
+}

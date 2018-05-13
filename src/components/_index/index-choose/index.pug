@@ -1,0 +1,26 @@
+include ../../title/index
+
+mixin indexChoose(options)
+    if !options
+        - var options = {}
+
+    .l-container
+        section.b-index-choose
+            header.b-index-choose__header
+                +title({
+                    text: 'Why choose us'
+                })(class='b-index-choose__title' mod='center' tag='h2')
+                .b-index-choose__desc
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            .b-index-choose__container
+                .b-index-choose__advantages
+                    each advantage in options.advantages
+                        .b-index-choose__advantage
+                            .b-index-choose__advantage-icon-wr
+                                img.b-index-choose__advantage-icon(src=advantage.icon height=30)
+                            h3.b-index-choose__advantage-title=advantage.title
+                            ul.b-index-choose__advantage-list
+                                each item in advantage.list
+                                    li.b-index-choose__advantage-list-item=item
+                .b-index-choose__img-wr
+                    img.b-index-choose__img(src=options.img)
