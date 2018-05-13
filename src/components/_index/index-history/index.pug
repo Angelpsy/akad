@@ -1,17 +1,12 @@
 include ../../title/index
-include ../../titleSrOnly/index
+
 mixin indexHistory(options)
     if !options
         - var options = {}
     - var title = 'History of agency';
 
-    section.b-index-history(class!=attributes.class)
-        +titleSrOnly({
-            text: title
-        })(tag="h2")
-        .l-container.b-index-history__container
-            .b-index-history__img-wr
-                img.b-index-history__img(src=options.img)
+    .l-container
+        section.b-index-history(class!=attributes.class)
             article.b-index-history__article
                 +title({
                     text: title
@@ -20,3 +15,5 @@ mixin indexHistory(options)
                     p Porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi modi tempora incidunt ut labore.
                 .b-index-history__footer
                     a.b-index-history__more(href="#") Read more
+            .b-index-history__img-wr
+                img.b-index-history__img(src=options.img)
