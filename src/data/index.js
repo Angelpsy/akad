@@ -48,6 +48,49 @@ const data = {
                 },
             ],
         },
+        'portfolio': {
+            'items': [
+                {
+                    'id': 'webdesign',
+                    'category': 'Webdesign',
+                    'imgs': [
+                        require(`../pages/index/assets/content/content-portfolio-1.jpg`),
+                        require(`../pages/index/assets/content/content-portfolio-2.jpg`),
+                    ],
+                },
+                {
+                    'id': 'graphicdesign',
+                    'category': 'Graphic design',
+                    'imgs': [
+                        require(`../pages/index/assets/content/content-portfolio-3.jpg`),
+                        require(`../pages/index/assets/content/content-portfolio-4.jpg`),
+                    ],
+                },
+                {
+                    'id': 'fashion',
+                    'category': 'Fashion',
+                    'imgs': [
+                        require(`../pages/index/assets/content/content-portfolio-5.jpg`),
+                        require(`../pages/index/assets/content/content-portfolio-6.jpg`),
+                    ],
+                },
+                {
+                    'id': 'logodesign',
+                    'category': 'Logo design',
+                    'imgs': [
+                        require(`../pages/index/assets/content/content-portfolio-7.jpg`),
+                        require(`../pages/index/assets/content/content-portfolio-8.jpg`),
+                    ],
+                },
+                {
+                    'id': 'advertising',
+                    'category': 'Advertising',
+                    'imgs': [
+                        require(`../pages/index/assets/content/content-portfolio-9.jpg`),
+                    ],
+                },
+            ],
+        },
     },
 };
 

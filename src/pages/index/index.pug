@@ -11,6 +11,7 @@ append variables
 include ../../components/_index/index-hero/index
 include ../../components/_index/index-history/index
 include ../../components/_index/index-choose/index
+include ../../components/_index/index-portfolio/index
 block body
     +indexHero()(class='p-index__hero')
     +indexHistory({
@@ -19,5 +20,8 @@ block body
     +indexChoose({
         'advantages': data.index.choose.advantages,
         'img': data.index.choose.img
+    })
+    +indexPortfolio({
+        'portfolio': data.index.portfolio.items
     })
 

@@ -1,0 +1,30 @@
+include ../../title/index
+
+mixin indexPortfolio(options)
+    if !options
+        - var options = {}
+
+    .l-container
+        section.b-index-portfolio
+            header.b-index-portfolio__header
+                +title({
+                    text: 'Our portfolio'
+                })(class='b-index-portfolio__title' mod='center' tag='h2')
+                .b-index-portfolio__desc
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            .b-index-portfolio__container
+                .b-index-portfolio__category
+                    .b-index-portfolio__category-title Choose category
+                    ul.b-index-portfolio__category-list
+                        li.b-index-portfolio__category-item.b-index-portfolio__category-item--active
+                            a.b-index-portfolio__category-item-link(href="#portfolio-all")
+                                span.b-index-portfolio__category-item-text All
+                        each item in options.portfolio
+                            li.b-index-portfolio__category-item
+                                a.b-index-portfolio__category-item-link(href=`#portfolio-${item.id}`)
+                                    span.b-index-portfolio__category-item-text=item.category
+                ul.b-index-portfolio__imgs
+                    each item in options.portfolio
+                        each img in item.imgs
+                            li.b-index-portfolio__img-wr(data-category=item.id)
+                                img.b-index-portfolio__img(src=img)
